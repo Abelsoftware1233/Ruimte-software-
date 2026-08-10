@@ -12,7 +12,7 @@ lokaal op 127.0.0.1:5000 en hoeft niet publiek open te staan.
 Run:
     pip install -r requirements.txt
     python app.py
-    -> luistert op http://127.0.0.1:5000
+    -> luistert op http://127.0.0.1:5091
 """
 
 from flask import Flask, jsonify, request
@@ -246,4 +246,4 @@ def get_iss():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="127.0.0.1", port=5091, debug=False)
