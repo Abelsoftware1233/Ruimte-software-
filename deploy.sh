@@ -5,21 +5,20 @@ echo "========================================"
 echo " Abel123 Orbital Sentinel Setup Script"
 echo "========================================"
 
-# Define paths
+# Definieer de huidige map (waar alle bestanden staan)
 REPO_DIR=$(pwd)
-PYTHON_DIR="$REPO_DIR/python-service"
-JAVA_DIR="$REPO_DIR/java-service"
 USER_NAME=$(whoami)
 
 echo ">>> 1. Setting up Python Microservice..."
-cd $PYTHON_DIR
+# We blijven in de huidige map
+cd $REPO_DIR
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 deactivate
 
 echo ">>> 2. Building Java Backend..."
-cd $JAVA_DIR
+# pom.xml staat ook in deze map
 mvn clean package
 
 echo ">>> 3. Creating systemd service for Python (Port 5091)..."
@@ -30,8 +29,8 @@ After=network.target
 
 [Service]
 User=$USER_NAME
-WorkingDirectory=$PYTHON_DIR
-ExecStart=$PYTHON_DIR/venv/bin/python app.py
+WorkingDirectory=$REPO_DIR
+ExecStart=$REPO_DIR/venv/bin/python app.py
 Restart=always
 RestartSec=3
 
@@ -47,7 +46,7 @@ After=network.target sattracker-python.service
 
 [Service]
 User=$USER_NAME
-WorkingDirectory=$JAVA_DIR
+WorkingDirectory=$REPO_DIR
 ExecStart=/usr/bin/java -jar target/sattracker.jar
 Restart=always
 RestartSec=3
