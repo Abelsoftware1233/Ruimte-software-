@@ -7,7 +7,7 @@ snelheid/heading van satellieten met sgp4.
 
 NIET direct door de browser aan te spreken -- Java (poort 5090)
 proxy't alle requests hiernaartoe. Deze service draait alleen
-lokaal op 127.0.0.1:5000 en hoeft niet publiek open te staan.
+lokaal op 127.0.0.1:5091 en hoeft niet publiek open te staan.
 
 Run:
     pip install -r requirements.txt
