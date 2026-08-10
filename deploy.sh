@@ -22,7 +22,7 @@ echo ">>> 2. Building Java Backend..."
 cd $JAVA_DIR
 mvn clean package
 
-echo ">>> 3. Creating systemd service for Python..."
+echo ">>> 3. Creating systemd service for Python (Port 5091)..."
 sudo bash -c "cat > /etc/systemd/system/sattracker-python.service <<EOF
 [Unit]
 Description=SatTracker Python TLE Microservice
@@ -39,7 +39,7 @@ RestartSec=3
 WantedBy=multi-user.target
 EOF"
 
-echo ">>> 4. Creating systemd service for Java..."
+echo ">>> 4. Creating systemd service for Java (Port 5090)..."
 sudo bash -c "cat > /etc/systemd/system/sattracker-java.service <<EOF
 [Unit]
 Description=SatTracker Java Backend
