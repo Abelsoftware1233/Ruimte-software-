@@ -18,13 +18,13 @@ import java.util.Map;
  *   java -jar target/sattracker.jar
  *
  * Publiek bereikbaar op poort 5090.
- * Vereist dat de Python-service draait op http://127.0.0.1:5000
+ * Vereist dat de Python-service draait op http://127.0.0.1:5091
  * (zie python-service/app.py) -- die poort is alleen intern en
  * hoeft niet publiek open te staan.
  */
 public class Main {
 
-    private static final String PYTHON_SERVICE_URL = "http://127.0.0.1:5000";
+    private static final String PYTHON_SERVICE_URL = "http://127.0.0.1:5091";
     private static final int PUBLIC_PORT = 5090;
 
     public static void main(String[] args) {
